@@ -54,7 +54,6 @@ class AddressBook {
         }
     }
     
-
     toString() {
         return "First Name = " + this.firstName + 
                 " \nLast Name = " + this.lastName + 
@@ -65,13 +64,19 @@ class AddressBook {
                 " \nPhoneNumber = " + this.phoneNumber + 
                 " \nEmail = " + this.email;
     }
+
 }
-
-
-try {
-    let addressbook = new AddressBook("Akash", "Shevgan", "Hadapsar", "Pune", "Maharashtra", 412307, 8793447817, "akashshevgan11@gmail.com");
-    console.log(addressbook.toString());
+    let addressBook = [];
+    try {
+    let contact1 = new AddressBook("Akash", "Shevgan", "Hadapsar", "Pune", "Maharashtra", 412307, 8793447817, "akashshevgan11@gmail.com");
+    let contact2 = new AddressBook("Yogesh", "Rajput", "Gangapur", "Aurangabad", "Maharashtra", 423701, 9011871426, "yogeshr23@gmail.com");
+   
+    addressBook.push(contact1);
+    addressBook.push(contact2);
 }
 catch (e) {
     console.error(e);
 } 
+
+console.log(addressBook.toString());
+

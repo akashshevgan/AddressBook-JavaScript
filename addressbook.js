@@ -190,6 +190,8 @@ function search_by_city(){
     if (search != null){
         console.log("Searched Contacts in Mumbai");
     }
+    console.log("Contacts in Mumbai city are : ");
+    console.log(search);
 }
 
 function search_by_state(){
@@ -197,6 +199,8 @@ function search_by_state(){
     if (search != null) {
         console.log("Searched Contacts in Maharashtra");
     }
+    console.log("Contacts in Maharashtra state are : ");
+    console.log(search);
 }
 
 addContact();

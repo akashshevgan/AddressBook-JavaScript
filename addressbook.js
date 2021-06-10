@@ -202,6 +202,7 @@ function search_by_state(){
     console.log("Contacts in Maharashtra state are : ");
     console.log(search);
 }
+
 function count_by_city() {
     let city_count = addressBook.map(ele => ele.city === 'Mumbai');
     let size_city = city_count.reduce((prev, curr) => prev + curr);
@@ -214,6 +215,11 @@ function count_by_state() {
     console.log("Number of Contacts in state Maharashtra are : " + size_state);
 }
 
+function sort_contacts(){
+    console.log("Contacts after sorting alphabetically : ");
+    console.log(addressBook.sort());
+}
+
 addContact();
 editContact();
 deleteContact();
@@ -221,3 +227,4 @@ search_by_city();
 search_by_state();
 count_by_city();
 count_by_state();
+sort_contacts();

@@ -5,15 +5,15 @@ const regex_for_phoneNumber = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}
 const regex_for_email = new RegExp('^[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-])*@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*$');
 
 class AddressBook {
-    constructor (...args) {
-        this.firstName = args[0];
-        this.lastName = args[1];
-        this.address = args[2];
-        this.city = args[3];
-        this.state = args[4];
-        this.zip = args[5];
-        this.phoneNumber = args[6];
-        this.email = args[7];
+    constructor (...params) {
+        this.firstName = params[0];
+        this.lastName = params[1];
+        this.address = params[2];
+        this.city = params[3];
+        this.state = params[4];
+        this.zip = params[5];
+        this.phoneNumber = params[6];
+        this.email = params[7];
     }
 
     get getfirstName() {
@@ -135,16 +135,29 @@ class AddressBook {
 }
 
 let addressBook = [];
-try {
-    let contact1 = new AddressBook("Akash", "Rajput", "Hadapsar", "Pune", "Maharashtra", 412307, 8793447817, "akashshevgan@gmail.com");
+
+let contact1 = new AddressBook("Akash", "Rajput", "Hadapsar", "Pune", "Maharashtra", 412307, 8793447817, "akashshevgan@gmail.com");
     let contact2 = new AddressBook("Yogesh", "Patil", "Gangapur", "Aurangabad", "Maharashtra", 400088, 9011871426, "yogeshpatil@gmail.com");
     let contact3 = new AddressBook("Pankaj", "Tripathi", "Mirzapur", "Gaziyabad", "Uttarpradesh", 400031, 9922347002, "pankajt@gmail.com");
 
-    addressBook.push(contact1);
-    addressBook.push(contact2);
-    addressBook.push(contact3);
-    console.log(addressBook);
+addressBook.push(contact1);
+addressBook.push(contact2);
+addressBook.push(contact3);
+console.log(addressBook);
 
+function addContact() {
+    let contact = new AddressBook("Manish", "Roy", "Thane", "Mumbai", "Maharashtra", 43256, 9900887766, "manishr@gmail.com");
+    let contact_check = addressBook.map(name => name.getfirstName === contact.getfirstName);
+    if(contact_check.includes(true)) {
+        console.log("Contact already exists in AddressBook");
+    }
+    else{
+        addressBook.push(contact);
+    }
+    console.log(addressBook);
+}
+
+function editContact() {
     if (addressBook.find(name => name.firstName == "Akash")) {
         let id = addressBook.findIndex(name => name.firstName == "Akash");
         addressBook[id].setfirstName = "Sagar";
@@ -154,18 +167,24 @@ try {
     else{
         console.log("This Contact is not available in the AddressBook");
     }
+}
 
+function deleteContact() {
     if (addressBook.find(name => name.firstName == 'Sagar')) {
         let id = addressBook.findIndex(name => name.firstName == 'Sagar');
         addressBook.splice(id,1)
         console.log("After deletion contacts available are : " );
         console.log(addressBook);
-        
-        let contact_count = addressBook.map(ele => typeof ele.getfirstName === 'string');
-        let size = contact_count.reduce((previous, current) => previous + current);
-        console.log("Size after deletion is : " + size);
+        console.log("Size after deletion is : " + count());
     }
 }
-catch (e) {
-    console.error(e);
+
+function count() {
+    let contact_count = addressBook.map(ele => typeof ele.getfirstName === 'string');
+    let size = contact_count.reduce((previous, current) => previous + current);
+    return size;
 }
+
+addContact();
+editContact();
+deleteContact();

@@ -160,7 +160,10 @@ try {
         addressBook.splice(id,1)
         console.log("After deletion contacts available are : " );
         console.log(addressBook);
-        console.log("Size after deletion is : " + addressBook.length);
+        
+        let contact_count = addressBook.map(ele => typeof ele.getfirstName === 'string');
+        let size = contact_count.reduce((previous, current) => previous + current);
+        console.log("Size after deletion is : " + size);
     }
 }
 catch (e) {

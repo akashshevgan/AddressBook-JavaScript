@@ -202,9 +202,22 @@ function search_by_state(){
     console.log("Contacts in Maharashtra state are : ");
     console.log(search);
 }
+function count_by_city() {
+    let city_count = addressBook.map(ele => ele.city === 'Mumbai');
+    let size_city = city_count.reduce((prev, curr) => prev + curr);
+    console.log("Number of Contacts in city Mumbai are : " + size_city);
+}
+
+function count_by_state() {
+    let state_count = addressBook.map(ele => ele.state === 'Maharashtra');
+    let size_state = state_count.reduce((prev, curr) => prev + curr);
+    console.log("Number of Contacts in state Maharashtra are : " + size_state);
+}
 
 addContact();
 editContact();
 deleteContact();
 search_by_city();
 search_by_state();
+count_by_city();
+count_by_state();

@@ -5,15 +5,15 @@ const regex_for_phoneNumber = new RegExp(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}
 const regex_for_email = new RegExp('^[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-])*@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*$');
 
 class AddressBook {
-    constructor (...params) {
-        this.firstName = params[0];
-        this.lastName = params[1];
-        this.address = params[2];
-        this.city = params[3];
-        this.state = params[4];
-        this.zip = params[5];
-        this.phoneNumber = params[6];
-        this.email = params[7];
+    constructor (...args) {
+        this.firstName = args[0];
+        this.lastName = args[1];
+        this.address = args[2];
+        this.city = args[3];
+        this.state = args[4];
+        this.zip = args[5];
+        this.phoneNumber = args[6];
+        this.email = args[7];
     }
 
     get getfirstName() {
@@ -220,11 +220,15 @@ function sort_contacts(){
     console.log(addressBook.sort());
 }
 
-addContact();
-editContact();
-deleteContact();
-search_by_city();
-search_by_state();
-count_by_city();
-count_by_state();
-sort_contacts();
+function run_addressbook(){
+    addContact();
+    editContact();
+    deleteContact();
+    search_by_city();
+    search_by_state();
+    count_by_city();
+    count_by_state();
+    sort_contacts();
+}
+
+run_addressbook();

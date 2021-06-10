@@ -185,6 +185,22 @@ function count() {
     return size;
 }
 
+function search_by_city(){
+    let search = addressBook.filter(ele => ele.city == 'Mumbai');
+    if (search != null){
+        console.log("Searched Contacts in Mumbai");
+    }
+}
+
+function search_by_state(){
+    let search = addressBook.filter(ele => ele.state == 'Maharashtra');
+    if (search != null) {
+        console.log("Searched Contacts in Maharashtra");
+    }
+}
+
 addContact();
 editContact();
 deleteContact();
+search_by_city();
+search_by_state();
